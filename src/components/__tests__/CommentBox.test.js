@@ -9,6 +9,7 @@ import { mount } from 'enzyme';
 import CommentBox from '../CommentBox';
 
 
+// delcare variable that can be accessed inside function scope
 let wrapped;
 
 // initialize component
