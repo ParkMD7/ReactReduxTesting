@@ -8,15 +8,19 @@ import CommentBox from '../CommentBox';
 import CommentList from '../CommentList';
 
 
+
+// the beforeEach function will run before each test runs - gives us opportunity to write some shared logic before each tests run
+// declare the wrapped variable up here so that it is available to all scopes (instead of declaring it within the AF scope of beforeEach)
+let wrapped;
+beforeEach(() => {
+  wrapped = shallow(<App />);
+})
+
+
 it('shows a comment box', () => {
-  // terminology means our component is a wrapped version of our component w/ added functionality
-  const wrapped = shallow(<App />);
-  // .find returns an array of every instance of comment box found (should be 1 or 0 for our setup)
-  // .toEqual is the 'Matcher' here
   expect(wrapped.find(CommentBox).length).toEqual(1) // make sure to make tests break 1 time to validate our tests work
 });
 
 it('shows a comment list', () => {
-  const wrapped = shallow(<App />);
   expect(wrapped.find(CommentList).length).toEqual(1)
 });
