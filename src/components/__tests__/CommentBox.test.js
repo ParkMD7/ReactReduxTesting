@@ -7,13 +7,20 @@ import { mount } from 'enzyme';
 
 // user files
 import CommentBox from '../CommentBox';
+import Root from '../../Root';
 
 
 // delcare variable that can be accessed inside function scope
 let wrapped;
 
-// initialize component
-beforeEach(()=> { wrapped = mount(<CommentBox />) });
+// initialize component -> now wrapped in a Root Component which causes it to think it's a part of a redux application
+beforeEach(()=> {
+  wrapped = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  )
+});
 
 // cleanup component after
 afterEach(() => { wrapped.unmount() });

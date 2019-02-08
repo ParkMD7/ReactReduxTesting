@@ -1,18 +1,15 @@
 // dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
 // user files
 import App from './components/App';
-import reducers from './reducers';
+import Root from './Root';
 
-
-// the empty obj is the initial state for our redux store since we have no backend
+// When our application first starts - it tries to render an instance of the Root Component and the App Component will be passed to Root as a child
 ReactDOM.render(
-  <Provider store={createStore(reducers, {})}>
+  <Root>
     <App />
-  </Provider>,
+  </Root>,
   document.querySelector('#root')
 );
